@@ -1,3 +1,1 @@
-import App from './App'
-
-export default App
+export default () => <p>Hello from Index!</p>
