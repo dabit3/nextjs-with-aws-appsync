@@ -1,4 +1,5 @@
 # Next.js with AWS AppSync
+Check out[this](https://medium.com/@dabit3/ssr-graphql-apps-with-next-js-aws-appsync-eaf7fbeb1bde) post for a full walk-through.
 
 ## Getting started
 
