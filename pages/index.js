@@ -29,8 +29,21 @@ const mutation = gql`
   }
 `
 
+const subscription = gql`
+  subscription onCreateTodo {
+    onCreateTodo {
+      id
+      name
+      completed 
+    }
+  }
+`
+
 class App extends React.Component {
   state = { todo: '' }
+  componentDidMount() {
+    this.props.subscribeToNewTodos()
+  }
   createTodo = () => {
     const todo = {
       name: this.state.todo,
@@ -41,7 +54,6 @@ class App extends React.Component {
     this.setState({ todo: '' })
   }
   render() {
-    console.log('props: ', this.props)
     return <div>
       <p>Hello World</p>
       <input value={this.state.todo} onChange={e => this.setState({ todo: e.target.value })} />
@@ -59,7 +71,18 @@ const AppWithTodos = compose(
   graphql(mutation, {
     props: props => ({
       createTodo: todo => {
-        props.mutate({ variables: todo })
+        props.mutate({
+          variables: todo,
+          optimisticResponse: {
+            __typename: 'Mutation',
+            createTodo: { ...todo,  __typename: 'Todo' }
+          },
+          update: (proxy, { data: { createTodo } }) => {
+            const data = proxy.readQuery({ query: query });
+            data.listTodos.items.unshift(createTodo);
+            proxy.writeQuery({ query: query, data });
+          }
+        })
       }
     })
   }),
@@ -67,7 +90,24 @@ const AppWithTodos = compose(
     options: {
       fetchPolicy: 'cache-and-network'
     },
-    props: props => ({ todos: props.data.listTodos ? props.data.listTodos.items : [] })
+    props: props => ({
+      todos: props.data.listTodos ? props.data.listTodos.items : [],
+      subscribeToNewTodos: params => {
+        props.data.subscribeToMore({
+          document: subscription,
+          updateQuery: (prev, { subscriptionData: { data : { onCreateTodo } } }) => {
+            console.log('onCreateTodo: ', onCreateTodo)
+            return {
+              ...prev,
+              listTodos: {
+                __typename: 'TodoConnection',
+                items: [onCreateTodo, ...prev.listTodos.items.filter(todo => todo.id !== onCreateTodo.id)]
+              }
+            }
+          }
+        })
+      }
+    })
   })
 )(App)
 

@@ -1,121 +1,31 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete installedModules[moduleId];
-/******/ 		}
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./AppSync.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = ({
-  url: "https://f76fs4lfvjfcrd5ectflhkzlty.appsync-api.us-east-2.amazonaws.com/graphql",
-  region: "us-east-2",
-  auth: {
-    type: "API_KEY",
-    apiKey: "da2-cqfsyf5gnze67lqlkxa7amfkui"
-  }
-});
-
-/***/ }),
+webpackHotUpdate(4,{
 
 /***/ "./pages/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_graphql_tag__ = __webpack_require__("graphql-tag");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_graphql_tag__ = __webpack_require__("./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_graphql_tag___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_graphql_tag__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_apollo__ = __webpack_require__("react-apollo");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_apollo__ = __webpack_require__("./node_modules/react-apollo/react-apollo.browser.umd.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_apollo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_apollo__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__withData__ = __webpack_require__("./withData.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_uuid_v4__ = __webpack_require__("uuid/v4");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_uuid_v4__ = __webpack_require__("./node_modules/next/node_modules/uuid/v4.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_uuid_v4___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_uuid_v4__);
 var _jsxFileName = "/Users/dabit/appsync/appsync-next/pages/index.js";
 
 var _templateObject = /*#__PURE__*/ _taggedTemplateLiteral(["\n  query listTodos {\n    listTodos {\n      items {\n        id\n        name\n        completed\n      }\n    }\n  }\n"]),
-    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  mutation createTodo($id: ID!, $name: String!, $completed: Boolean!) {\n    createTodo(input: {\n      id: $id,\n      name: $name,\n      completed: $completed\n    }) {\n      id\n      name\n      completed\n    }\n  }\n"]),
-    _templateObject3 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  subscription onCreateTodo {\n    onCreateTodo {\n      id\n      name\n      completed \n    }\n  }\n"]);
+    _templateObject2 = /*#__PURE__*/ _taggedTemplateLiteral(["\n  mutation createTodo($id: ID!, $name: String!, $completed: Boolean!) {\n    createTodo(input: {\n      id: $id,\n      name: $name,\n      completed: $completed\n    }) {\n      id\n      name\n      completed\n    }\n  }\n"]);
 
 
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+(function () {
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+  enterModule && enterModule(module);
+})();
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -143,7 +53,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var query = __WEBPACK_IMPORTED_MODULE_1_graphql_tag___default()(_templateObject);
 var mutation = __WEBPACK_IMPORTED_MODULE_1_graphql_tag___default()(_templateObject2);
-var subscription = __WEBPACK_IMPORTED_MODULE_1_graphql_tag___default()(_templateObject3);
 
 var App =
 /*#__PURE__*/
@@ -189,24 +98,20 @@ function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.subscribeToNewTodos();
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
+      console.log('props: ', this.props);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 45
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 46
         }
       }, "Hello World"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
         value: this.state.todo,
@@ -217,23 +122,30 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 47
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         onClick: this.createTodo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 48
         }
       }, "Create Todo"), this.props.todos.map(function (todo, index) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 51
           }
         }, todo.name);
       }));
+    }
+  }, {
+    key: "__reactstandin__regenerateByEval",
+    // @ts-ignore
+    value: function __reactstandin__regenerateByEval(key, code) {
+      // @ts-ignore
+      this[key] = eval(code);
     }
   }]);
 
@@ -273,86 +185,55 @@ var AppWithTodos = Object(__WEBPACK_IMPORTED_MODULE_2_react_apollo__["compose"])
   },
   props: function props(_props2) {
     return {
-      todos: _props2.data.listTodos ? _props2.data.listTodos.items : [],
-      subscribeToNewTodos: function subscribeToNewTodos(params) {
-        _props2.data.subscribeToMore({
-          document: subscription,
-          updateQuery: function updateQuery(prev, _ref3) {
-            var onCreateTodo = _ref3.subscriptionData.data.onCreateTodo;
-            console.log('onCreateTodo: ', onCreateTodo);
-            return _objectSpread({}, prev, {
-              listTodos: {
-                __typename: 'TodoConnection',
-                items: [onCreateTodo].concat(_toConsumableArray(prev.listTodos.items.filter(function (todo) {
-                  return todo.id !== onCreateTodo.id;
-                })))
-              }
-            });
-          }
-        });
-      }
+      todos: _props2.data.listTodos ? _props2.data.listTodos.items : []
     };
   }
 }))(App);
-/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_3__withData__["a" /* default */])(AppWithTodos));
 
-/***/ }),
+var _default = Object(__WEBPACK_IMPORTED_MODULE_3__withData__["a" /* default */])(AppWithTodos);
 
-/***/ "./withData.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* harmony default export */ __webpack_exports__["default"] = (_default);
+;
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_next_apollo_appsync__ = __webpack_require__("next-apollo-appsync");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_next_apollo_appsync___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_next_apollo_appsync__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__AppSync__ = __webpack_require__("./AppSync.js");
+(function () {
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
 
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_next_apollo_appsync__["withAppSyncData"])(__WEBPACK_IMPORTED_MODULE_1__AppSync__["a" /* default */]));
+  if (!reactHotLoader) {
+    return;
+  }
 
-/***/ }),
+  reactHotLoader.register(query, "query", "/Users/dabit/appsync/appsync-next/pages/index.js");
+  reactHotLoader.register(mutation, "mutation", "/Users/dabit/appsync/appsync-next/pages/index.js");
+  reactHotLoader.register(App, "App", "/Users/dabit/appsync/appsync-next/pages/index.js");
+  reactHotLoader.register(AppWithTodos, "AppWithTodos", "/Users/dabit/appsync/appsync-next/pages/index.js");
+  reactHotLoader.register(_default, "default", "/Users/dabit/appsync/appsync-next/pages/index.js");
+  leaveModule(module);
+})();
 
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
+;
+    (function (Component, route) {
+      if(!Component) return
+      if (false) return
+      module.hot.accept()
+      Component.__route = route
 
-module.exports = __webpack_require__("./pages/index.js");
+      if (module.hot.status() === 'idle') return
 
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
 
-/***/ }),
-
-/***/ "graphql-tag":
-/***/ (function(module, exports) {
-
-module.exports = require("graphql-tag");
-
-/***/ }),
-
-/***/ "next-apollo-appsync":
-/***/ (function(module, exports) {
-
-module.exports = require("next-apollo-appsync");
-
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ "react-apollo":
-/***/ (function(module, exports) {
-
-module.exports = require("react-apollo");
-
-/***/ }),
-
-/***/ "uuid/v4":
-/***/ (function(module, exports) {
-
-module.exports = require("uuid/v4");
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
+        }
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/")
+  
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ })
 
-/******/ });
-//# sourceMappingURL=index.js.map
+})
+//# sourceMappingURL=4.3a2e597e81b759737ac0.hot-update.js.map
