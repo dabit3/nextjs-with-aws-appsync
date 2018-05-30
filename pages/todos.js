@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
-import WithProvider from './WithProvider'
+import withData from '../withData'
 
 const query = gql`
   query listTodos {
@@ -14,7 +14,7 @@ const query = gql`
   }
 `
 
-class Todos extends React.Component {
+class App extends React.Component {
   render() {
     console.log('props: ', this.props)
     return <div>
@@ -23,11 +23,11 @@ class Todos extends React.Component {
   }
 }
 
-const TodosWithData = graphql(query, {
+const AppWithTodos = graphql(query, {
   options: {
     fetchPolicy: 'cache-and-network'
   },
   props: props => ({ todos: props.data.listTodos ? props.data.listTodos.items : [] })
-})(Todos)
+})(App)
 
-export default WithProvider(TodosWithData)
+export default withData(AppWithTodos)

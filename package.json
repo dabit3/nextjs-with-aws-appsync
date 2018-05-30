@@ -17,9 +17,11 @@
     "aws-appsync-react": "^1.0.13",
     "graphql-tag": "^2.9.2",
     "next": "^6.0.3",
-    "node-fetch": "^2.1.2",
+    "next-apollo": "^1.0.13",
+    "next-apollo-appsync": "^0.0.7",
     "react": "^16.4.0",
     "react-apollo": "^2.1.4",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "uuid": "^3.2.1"
   }
 }
